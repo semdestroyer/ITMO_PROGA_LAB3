@@ -1,10 +1,12 @@
 package Classes;
 
+import Abstract.Object;
 import Abstract.Person;
 import Enums.State;
 import Enums.Status;
+import Interfaces.ArrivingObject;
 
-public class Baby extends Person
+public class Baby extends Person implements ArrivingObject
 {
 
 
@@ -43,11 +45,7 @@ public class Baby extends Person
        System.out.println(name + " остановились");
     }
 
-    @Override
-    public void seat()
-    {
-       System.out.println(name + " сели");
-    }
+
 
    @Override
    public void setStatus(Status s) {
@@ -69,5 +67,13 @@ public class Baby extends Person
     }
 
 
+    @Override
+    public void whenNear() {
 
+    }
+
+    @Override
+    public void onArrive(Object o) {
+        System.out.println(getName() + " подошли к " + o.getName());
+    }
 }

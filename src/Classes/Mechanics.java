@@ -1,9 +1,12 @@
 package Classes;
 
+import Abstract.Object;
 import Abstract.Person;
 import Enums.State;
 import Enums.Status;
 import Interfaces.Repairs;
+
+import java.util.Random;
 
 public class Mechanics extends Person implements Repairs
 {
@@ -37,10 +40,6 @@ public class Mechanics extends Person implements Repairs
 
     }
 
-    @Override
-    public void seat() {
-
-    }
 
     @Override
     public void setStatus(Status s)
@@ -50,6 +49,17 @@ public class Mechanics extends Person implements Repairs
     @Override
     public Status getStatus()
     {
+        String out;
+        switch (this.status)
+        {
+            case SEAT:out = "Сели";break;
+            case WALK:break;
+            case STOP:break;
+            case DRIVE:break;
+        }
+
+
+
         return status;
     }
 
@@ -65,12 +75,25 @@ public class Mechanics extends Person implements Repairs
 
 
     @Override
-    public void fix() {
-        System.out.print(getName() + "чинят");
+    public void fix(Car c) {
+        System.out.println(getName() + " чинят");
+        if(c.getHp() >= 100) {
+            c.setHp(100);
+        }
+        else
+        {
+            c.setHp((int) (c.getHp() + Math.random() * 5));
+
+        }
     }
 
     @Override
-    public void checkFixingProgress(int hp) {
-        System.out.print(getName() + " починили на " + hp + "%");
+    public void checkFixingProgress(Car c) {
+        System.out.println(getName() + " починили " + c.getName() + " на " + c.getHp() + "%");
+    }
+
+    @Override
+    public void startFixing(Object o) {
+        System.out.println(getName() + " начали чинить " + o.getName());
     }
 }

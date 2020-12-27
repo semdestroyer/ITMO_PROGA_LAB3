@@ -18,7 +18,6 @@ public abstract class Person
     public abstract void walk();
     public abstract void see(Person p);
     public abstract void stop();
-    public abstract void seat();
     public abstract void setStatus(Status s);
     public abstract Status getStatus();
     public abstract void setState(State s);

@@ -1,6 +1,7 @@
 package Classes;
 
 import Abstract.Object;
+import Interfaces.ArrivingObject;
 
 public class Garage extends Object
 {
@@ -14,5 +15,9 @@ public class Garage extends Object
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+    public void onPersonArrive(ArrivingObject a)
+    {
+        System.out.println(getName() + " " );
     }
 }
